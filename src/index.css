@@ -1,0 +1,354 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --color-bg: #ffffff;
+    --color-offwhite: #fafafa;
+    --color-ink: #111111;
+    --color-charcoal: #444444;
+    --color-border: #eaeaea;
+    --ease-lux: cubic-bezier(0.22, 1, 0.36, 1);
+    --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+    scroll-behavior: smooth;
+  }
+
+  body {
+    margin: 0;
+    background-color: #ffffff;
+    color: #111111;
+    font-family: "Inter", system-ui, sans-serif;
+    overflow-x: hidden;
+  }
+
+  ::selection {
+    background: #111111;
+    color: #ffffff;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+    font-weight: 500;
+    letter-spacing: -0.01em;
+  }
+
+  .font-serif {
+    font-family: "Playfair Display", "Cormorant Garamond", Georgia, serif;
+  }
+
+  .font-display {
+    font-family: "Cormorant Garamond", "Playfair Display", Georgia, serif;
+  }
+}
+
+@layer components {
+  .container-lux {
+    width: 100%;
+    max-width: 1440px;
+    margin-left: auto;
+    margin-right: auto;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+  }
+
+  @media (min-width: 640px) {
+    .container-lux {
+      padding-left: 2rem;
+      padding-right: 2rem;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .container-lux {
+      padding-left: 4rem;
+      padding-right: 4rem;
+    }
+  }
+
+  @media (min-width: 1280px) {
+    .container-lux {
+      padding-left: 6rem;
+      padding-right: 6rem;
+    }
+  }
+
+  .eyebrow {
+    font-family: "Inter", sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.28em;
+    text-transform: uppercase;
+    color: #444444;
+  }
+
+  .btn-lux {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.625rem;
+    font-family: "Inter", sans-serif;
+    font-size: 0.8125rem;
+    font-weight: 500;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 1.125rem 2.25rem;
+    border: 1px solid #111111;
+    transition: all 0.6s var(--ease-lux);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+  }
+
+  .btn-lux-solid {
+    background: #111111;
+    color: #ffffff;
+  }
+
+  .btn-lux-solid::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ffffff;
+    transform: translateY(101%);
+    transition: transform 0.6s var(--ease-lux);
+    z-index: 0;
+  }
+
+  .btn-lux-solid:hover::before {
+    transform: translateY(0);
+  }
+
+  .btn-lux-solid:hover {
+    color: #111111;
+  }
+
+  .btn-lux-solid > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .btn-lux-outline {
+    background: transparent;
+    color: #111111;
+  }
+
+  .btn-lux-outline::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #111111;
+    transform: translateY(101%);
+    transition: transform 0.6s var(--ease-lux);
+    z-index: 0;
+  }
+
+  .btn-lux-outline:hover::before {
+    transform: translateY(0);
+  }
+
+  .btn-lux-outline:hover {
+    color: #ffffff;
+    border-color: #111111;
+  }
+
+  .btn-lux-outline > * {
+    position: relative;
+    z-index: 1;
+  }
+
+  .glass-card {
+    background: rgba(255, 255, 255, 0.6);
+    backdrop-filter: blur(20px) saturate(140%);
+    -webkit-backdrop-filter: blur(20px) saturate(140%);
+    border: 1px solid rgba(255, 255, 255, 0.5);
+  }
+
+  .hairline {
+    height: 1px;
+    background: #eaeaea;
+    border: 0;
+  }
+
+  .dpad-btn {
+    width: 1.75rem;
+    height: 1.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 1px solid #eaeaea;
+    font-size: 0.75rem;
+    color: #444444;
+    background: #ffffff;
+    transition: all 0.2s ease;
+  }
+  .dpad-btn:hover {
+    background: #111111;
+    color: #ffffff;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+
+  .text-pretty {
+    text-wrap: pretty;
+  }
+
+  .blend-difference {
+    mix-blend-mode: difference;
+  }
+
+  .perspective-1000 {
+    perspective: 1000px;
+  }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mask-fade-y {
+    -webkit-mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+    mask-image: linear-gradient(to bottom, transparent, black 8%, black 92%, transparent);
+  }
+}
+
+/* Premium scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #fafafa;
+}
+::-webkit-scrollbar-thumb {
+  background: #cfcfcf;
+  border-radius: 0;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #111111;
+}
+
+/* Video element defaults */
+video {
+  background-color: #111111;
+}
+
+/* Reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+
+/* Move Mode — draggable elements get a visible outline + cursor */
+.draggable-item {
+  outline: 1.5px dashed rgba(17, 17, 17, 0.4);
+  outline-offset: 6px;
+  cursor: grab;
+  user-select: none;
+  transition: outline-color 0.3s ease;
+}
+.draggable-item:hover {
+  outline-color: rgba(17, 17, 17, 0.8);
+}
+.draggable-item:active {
+  cursor: grabbing;
+}
+/* On dark backgrounds the dashed outline needs to be light */
+.draggable-item-dark {
+  outline: 1.5px dashed rgba(255, 255, 255, 0.45);
+  outline-offset: 6px;
+}
+.draggable-item-dark:hover {
+  outline-color: rgba(255, 255, 255, 0.85);
+}
+
+/* ── Typography presets ──────────────────────────────────────────────
+   Applied via [data-typography="<preset>"] on the root wrapper.
+   Each preset overrides the .font-serif / heading / body families.
+   */
+
+/* Modern Sans — Inter for everything */
+[data-typography="modern"] body,
+[data-typography="modern"] .font-serif,
+[data-typography="modern"] h1,
+[data-typography="modern"] h2,
+[data-typography="modern"] h3,
+[data-typography="modern"] h4,
+[data-typography="modern"] h5,
+[data-typography="modern"] h6 {
+  font-family: "Inter", system-ui, sans-serif !important;
+  font-weight: 600;
+  letter-spacing: -0.02em;
+}
+
+/* Classic Serif — Cormorant Garamond throughout */
+[data-typography="classic"] body,
+[data-typography="classic"] .font-serif,
+[data-typography="classic"] .font-display,
+[data-typography="classic"] h1,
+[data-typography="classic"] h2,
+[data-typography="classic"] h3,
+[data-typography="classic"] h4,
+[data-typography="classic"] h5,
+[data-typography="classic"] h6 {
+  font-family: "Cormorant Garamond", Georgia, serif !important;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+[data-typography="classic"] body {
+  font-weight: 400;
+}
+
+/* Monospace — JetBrains Mono headings, Inter body */
+[data-typography="mono"] .font-serif,
+[data-typography="mono"] h1,
+[data-typography="mono"] h2,
+[data-typography="mono"] h3,
+[data-typography="mono"] h4,
+[data-typography="mono"] h5,
+[data-typography="mono"] h6 {
+  font-family: "JetBrains Mono", ui-monospace, monospace !important;
+  font-weight: 500;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+/* Bold Display — Playfair Display Black, oversized & high-contrast */
+[data-typography="display"] .font-serif,
+[data-typography="display"] h1,
+[data-typography="display"] h2,
+[data-typography="display"] h3,
+[data-typography="display"] h4,
+[data-typography="display"] h5,
+[data-typography="display"] h6 {
+  font-family: "Playfair Display", Georgia, serif !important;
+  font-weight: 900;
+  letter-spacing: -0.03em;
+}
+[data-typography="display"] .eyebrow {
+  font-weight: 700;
+  letter-spacing: 0.32em;
+}
+
+/* Editorial is the default — no overrides needed */
+
